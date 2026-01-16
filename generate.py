@@ -13,7 +13,7 @@ def generate_image(prompt, output_path="outputs/generated.png"):
     llm_path = os.path.join(base_path, "LLM(text encoder)", "Qwen3-4B-Q4_K_M.gguf")
     vae_path = os.path.join(base_path, "vae", "ae.safetensors")
 
-    # Command arguments
+    # Cmd args
     args = [
         sd_path,
         "--diffusion-model", model_path,
@@ -32,7 +32,7 @@ def generate_image(prompt, output_path="outputs/generated.png"):
     print("-" * 40)
 
     try:
-        # Run the command and stream output
+        # for streaming output
         process = subprocess.Popen(
             args,
             stdout=subprocess.PIPE,
@@ -47,7 +47,7 @@ def generate_image(prompt, output_path="outputs/generated.png"):
             line = line.strip()
             if line:
                 # Filter for progress lines if possible, or just print everything
-                # sd.cpp typically prints progress on stderr, but we redirected it to stdout
+                # sd.cpp typically prints progress on stderr, but I redirected it to stdout
                 print(line)
 
         process.wait()
@@ -63,5 +63,5 @@ def generate_image(prompt, output_path="outputs/generated.png"):
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    prompt = sys.argv[1] if len(sys.argv) > 1 else "A high-tech digital art illustration of a powerful AI entity"
+    prompt = sys.argv[1] if len(sys.argv) > 1 else "A high-tech digital art illustration of a powerful AI entity" #for debug
     generate_image(prompt)
