@@ -1,0 +1,16 @@
+# Models
+Image-model/*.gguf
+LLM(text encoder)/*.gguf
+vae/*.safetensors
+
+# Help files
+help.txt
+help_vulkan.txt
+
+# Outputs
+outputs/*
+!outputs/.gitkeep
+
+# Python caches
+__pycache__/
+*.pyc
