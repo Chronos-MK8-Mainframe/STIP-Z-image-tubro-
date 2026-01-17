@@ -24,7 +24,7 @@ This project provides a simple text-to-image pipeline using `stable-diffusion.cp
 Run the generation script with a prompt:
 
 ```bash
-python generate.py -p "A futuristic cityscape with neon lights"
+python generate.py "A futuristic cityscape with neon lights"
 ```
 
 The output will be saved to `outputs/generated.png`.
